@@ -50,6 +50,8 @@ class DatapointsController < ApplicationController
 
 		batch.process!
 
+		File.open('test.txt', 'a') {|f| f.write(@dataset) }
+
 		
 	
 	end
