@@ -26,9 +26,7 @@ class DatapointsController < ApplicationController
 	# POST /datapoints
   	# POST /datapoints.json
 	def create
-		impresponse = params.inspect
-
-		@params = impresponse
+		@params = params[:value].inspect
 
 		File.open('test.txt', 'a') {|f| f.write(@params) }
 	
