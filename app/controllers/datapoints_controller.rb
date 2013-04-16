@@ -36,4 +36,8 @@ class DatapointsController < ApplicationController
 		@body = File.open("test.txt", "rb") {|io| io.read}
 	end
 
+	def deltxt
+		File.open('test.txt', 'w')
+	end
+
 end
