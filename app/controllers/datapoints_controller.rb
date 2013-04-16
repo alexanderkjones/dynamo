@@ -26,6 +26,15 @@ class DatapointsController < ApplicationController
 	# POST /datapoints
   	# POST /datapoints.json
 	def create
+		#connect to DB
+		db = AWS::DynamoDB.new
+		table = db.tables['hive_data_store']
+		table.hash_key = [:hive_id, :string]
+		table.range_key = [:date_time, :number]
+
+		# adding one item at a time to the batch
+		batch = AWS::DynamoDB::BatchWrite.new
+
 		@dataset = params[:value]
 
 		@dataset[:datapoints].each do |datapoint|
@@ -35,8 +44,11 @@ class DatapointsController < ApplicationController
 						:voltage => @dataset[:voltage],
 						:fxpoint => datapoint
 					}
+			batch.put(table, @data)
 			File.open('test.txt', 'a') {|f| f.write(@data) }
 		end
+
+		batch.process!
 
 		
 	
