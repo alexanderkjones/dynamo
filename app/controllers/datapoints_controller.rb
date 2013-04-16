@@ -26,9 +26,19 @@ class DatapointsController < ApplicationController
 	# POST /datapoints
   	# POST /datapoints.json
 	def create
-		@params = params[:value][:id]
+		@dataset = params[:value]
 
-		File.open('test.txt', 'a') {|f| f.write(@params) }
+		@dataset[:datapoints].each do |datapoint|
+			@data = {
+						:hive_id => @dataset[:id], 
+						:date_time => @dataset[:datetime],
+						:voltage => @dataset[:voltage],
+						:fxpoint => datapoint
+					}
+			File.open('test.txt', 'a') {|f| f.write(@data) }
+		end
+
+		
 	
 	end
 
