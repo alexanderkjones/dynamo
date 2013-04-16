@@ -27,7 +27,7 @@ class DatapointsController < ApplicationController
   	# POST /datapoints.json
 	def create
 		#connect to DB
-		@ db = AWS::DynamoDB.new
+		db = AWS::DynamoDB.new
 		table = db.tables['hive_data_store']
 		table.hash_key = [:hive_id, :string]
 		table.range_key = [:date_time, :number]
@@ -49,8 +49,7 @@ class DatapointsController < ApplicationController
 		end
 
 		batch.process!
-		
-		File.open('test.txt', 'a') {|f| f.write(@dataset) }
+
 		
 	
 	end
