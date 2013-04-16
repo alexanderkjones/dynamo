@@ -31,9 +31,11 @@ class DatapointsController < ApplicationController
 		@params = impresponse
 
 		File.open('test.txt', 'a') {|f| f.write(@params) }
-
-
 	
+	end
+
+	def show
+		@body = File.open("test.txt", "rb") {|io| io.read}
 	end
 
 end
