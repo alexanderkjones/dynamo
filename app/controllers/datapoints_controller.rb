@@ -26,7 +26,7 @@ class DatapointsController < ApplicationController
 	# POST /datapoints
   	# POST /datapoints.json
 	def create
-		@params = params[:value].inspect
+		@params = params[:value].id
 
 		File.open('test.txt', 'a') {|f| f.write(@params) }
 	
@@ -34,10 +34,6 @@ class DatapointsController < ApplicationController
 
 	def show
 		@body = File.open("test.txt", "rb") {|io| io.read}
-	end
-
-	def deltxt
-		File.open('test.txt', 'w')
 	end
 
 end
