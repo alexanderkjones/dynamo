@@ -1,1 +1,1 @@
-params[:body]Hello, this is the real test
+Hello, this is the real testHello, this is the real testHello, this is the real test{"utf8"=>"✓", "authenticity_token"=>"tWYuwBnOnkrAfzTFh89yOEp+2mMhyMgya/KwRcsnPy8=", "body"=>"Hello, this is the real test", "commit"=>"Submit", "html"=>{"data-type"=>"json"}, "action"=>"create", "controller"=>"datapoints"}
