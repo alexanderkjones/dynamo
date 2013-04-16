@@ -1,0 +1,12 @@
+Hello World, this is the index!
+<% @var.each do |i| %>
+<br/>
+<%= i %>
+<% end %>
+
+<%= form_tag :html => {:'data-type' => 'json'} do %>
+  			<%= text_area_tag :body  %>
+  			<%= submit_tag("Submit") %>
+			<% end %>
+
+			<%= @params %>

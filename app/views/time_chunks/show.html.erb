@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Source:</b>
+  <%= @time_chunk.source_id %>
+</p>
+
+<p>
+  <b>Date time:</b>
+  <%= @time_chunk.date_time %>
+</p>
+
+
+<%= link_to 'Edit', edit_time_chunk_path(@time_chunk) %> |
+<%= link_to 'Back', time_chunks_path %>
