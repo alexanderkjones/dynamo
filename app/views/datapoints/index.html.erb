@@ -3,3 +3,8 @@ Hello World, this is the index!
 <br/>
 <%= i %>
 <% end %>
+
+<%= form_tag(:html => {:'data-type' => 'json'})  do %>
+<%= text_field_tag(:value) %>
+<%= submit_tag("POST") %>
+<% end %>
